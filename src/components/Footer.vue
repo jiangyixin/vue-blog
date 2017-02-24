@@ -1,27 +1,17 @@
 <template>
-    <div>
-        <header-component/>
-        <div>this is template body</div>
-        <other-component/>
-    </div>
+  <footer class="footer">
+    Copyright © 2017 | Powered by <a href="https://github.com/jiangyixin/vue-blog" target="_blank">vue-blog</a>
+  </footer>
 </template>
-<style>
-    body{
-        background-color:#ff0000;
-    }
+<style scoped lang="less" rel="stylesheet/less">
+
 </style>
 <script>
-    import HeaderComponent from './components/header.vue'
-    import OtherComponent from './components/other.vue'
-    export default{
-        data(){
-            return{
-                msg:'hello vue'
-            }
-        },
-        components:{
-            'other-component':OtherComponent,
-            HeaderComponent,
-        }
+  export default{
+    data () {
+      return {
+
+      }
     }
+  }
 </script>

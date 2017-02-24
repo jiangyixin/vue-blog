@@ -1,25 +1,20 @@
 <template>
-  <div>
+  <header class="header">
     <a class="index" href="/">Hello World</a>
-    <input class="search" type="search" name="" value="" placeholder="Search...">
-  </div>
+    <!--<input class="search" type="search" name="" value="" placeholder="Search...">-->
+  </header>
 </template>
 <style scoped lang="less" rel="stylesheet/less">
-  @hello: #dd4433;
-  @world: #66bb33;
-  .hello {
-    color: @hello;
-  }
-  .world {
-    color: @world;
+  .header {
+    padding: 5px;
   }
   .index {
-    display: block;
+    display: inline-block;
     color: #333;
-
-  }
-  .search {
-
+    letter-spacing: 1px;
+    font-size: 22px;
+    padding: 8px;
+    margin-top: 50px;
   }
 </style>
 <script>

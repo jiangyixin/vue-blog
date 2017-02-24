@@ -34,7 +34,7 @@ module.exports = {
     'prefer-template': 0,
     'prefer-arrow-callback': 0,
     'max-len': [0, 120],
-    'space-before-function-paren': [2, {'anonymous': 'ignore', 'named': 'always' }],
+    'space-before-function-paren': [1, {'anonymous': 'ignore', 'named': 'always' }],
     'object-shorthand': [2, 'always', { 'avoidQuotes': true }],
     'no-param-reassign': [2, { "props": false }],
     'global-require': 0,
