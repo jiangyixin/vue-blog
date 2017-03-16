@@ -7,23 +7,21 @@
 </template>
 
 <script>
-  import myHeader from './components/Header'
-  import myFooter from './components/Footer'
+  import Header from './components/Header'
+  import Footer from './components/Footer'
   export default {
     name: 'app',
     components: {
-      myHeader, myFooter
+      'my-header': Header,
+      'my-footer': Footer
     }
   }
 </script>
 
-<style lang="less" rel="stylesheet/less">
+<style lang="less" rel="stylesheet/less" >
   @import url(./assets/css/common.less);
   #app {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
+    max-width: 700px;
+    margin: auto;
   }
 </style>

@@ -1,15 +1,26 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Main from 'components/Main'
+import List from '@/pages/List'
+import Article from '@/pages/Article'
 
-Vue.use(Router)
+Vue.use(Router);
 
 export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Main',
-      component: Main
+      name: 'list',
+      component: List
+    },
+    {
+      path: '/list',
+      name: 'list',
+      component: List
+    },
+    {
+      path: '/article/:id',
+      name: 'article',
+      component: Article
     }
   ]
 })

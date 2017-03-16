@@ -1,3 +1,4 @@
+@import "normalize";
 
 @a-color: #0275d8;
 @a-color-hover: #014c8c;
@@ -9,9 +10,10 @@ a {
   -webkit-text-decoration-skip: objects;
 }
 
+a:focus,
 a:hover {
   color: @a-color-hover;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 a:not([href]):not([tabindex]) {

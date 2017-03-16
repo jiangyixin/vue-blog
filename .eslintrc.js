@@ -32,6 +32,14 @@ module.exports = {
     "one-var": 0,
     "no-undef": 0,
     "object-curly-spacing": 0,
+    "space-before-blocks": 0,
+    "no-trailing-spaces ": 0,
+    "prefer-const": 0,
+    "no-trailing-spaces": 0,
+    "consistent-return": 0,
+    "comma-dangle": 0,
+    "padded-blocks": 0,
+
 
     // 警告
     "no-extra-boolean-cast": 1,
@@ -40,6 +48,7 @@ module.exports = {
     "no-use-before-define": [1, "nofunc"],
     "complexity": [1, 10],
     "no-unused-vars": 1,
+
 
     // vue
     "flow-vars/define-flow-type": 1,
@@ -50,7 +59,6 @@ module.exports = {
     "react/jsx-uses-vars": 2,
 
     // 错误
-    "comma-dangle": [2, "never"],
     "no-debugger": 2,
     "no-constant-condition": 2,
     "no-dupe-args": 2,
@@ -75,7 +83,6 @@ module.exports = {
       "afterColon": true
     }],
     "block-scoped-var": 2,
-    "consistent-return": 2,
     "accessor-pairs": 2,
     "dot-location": [2, "property"],
     "no-lone-blocks": 2,

@@ -1,12 +1,58 @@
 <template>
   <header class="header">
-    <a class="index" href="/">Hello World</a>
-    <!--<input class="search" type="search" name="" value="" placeholder="Search...">-->
+    <router-link class="index" to="/list">Hello World</router-link>
+    <input class="search"
+           type="search"
+           ref="searchBar"
+           v-show="isShow"
+           v-model="keyword"
+           @click="selectSearchText"
+           @keyup.esc="resetSearch"
+           placeholder="Search...">
   </header>
 </template>
+
+<script>
+  export default{
+    data () {
+      return {
+        msg: 'hello vue',
+        keyword: ''
+      }
+    },
+    computed: {
+      isShow () {
+        return this.$route.name === 'list'
+      }
+    },
+    methods: {
+      resetSearch () {
+        this.keyword = '';
+        this.$refs.searchBar.blur()
+      },
+      selectSearchText () {
+        this.$refs.searchBar.select()
+      },
+      wait () {
+        if (this.keyword) {
+          this.$router.push({name: 'list', query: { keyword: this.keyword}})
+        } else {
+          this.$router.push({name: 'list'})
+        }
+      }
+    },
+    watch: {
+      keyword () {
+        this.wait()
+      }
+    }
+  }
+</script>
+
 <style scoped lang="less" rel="stylesheet/less">
   .header {
     padding: 5px;
+    text-align: center;
   }
   .index {
     display: inline-block;
@@ -16,17 +62,20 @@
     padding: 8px;
     margin-top: 50px;
   }
-</style>
-<script>
-
-  export default{
-    data () {
-      return {
-        msg: 'hello vue'
-      }
-    },
-    components: {
-
-    }
+  .search {
+    display: block;
+    margin: 5px auto 0;
+    width: 150px;
+    text-align: center;
+    border: none;
+    background-color: #fff;
+    color: #666;
   }
-</script>
+  .search:active,
+  .search:focus,
+  .search:hover {
+    outline: none;
+    background-color: #fafafa;
+    text-decoration: none;
+  }
+</style>
