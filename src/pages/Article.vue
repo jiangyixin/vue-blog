@@ -1,25 +1,69 @@
 <template>
-  <article>
-    <h3>{{ article.title }}</h3>
-    <p>{{ article.date }}</p>
-  </article>
+  <section class="post-view">
+    <div v-if="!content">loading..</div>
+    <h1 class="post-title">
+      {{ title }}
+      <time class="post-date">{{ date }}</time>
+    </h1>
+    <article v-if="content" v-html="htmlFromMarkdown"></article>
+  </section>
 </template>
 
 <script type="text/ecmascript-6">
+  import Vue from 'vue'
+  import fm from 'front-matter'
+  import marked from '../utils/render'
+
   export default {
-    date () {
-      return {}
+    name: 'article',
+    data () {
+      return {
+        title: '',
+        date: null,
+        content: ''
+      }
     },
     computed: {
-      article () {
-        let params = this.$route.params;
-        let articles = this.$store.state.list;
-        let article = articles.filter(article => article.id == params.id)[0];
-        if (!article) {
-          this.$router.replace('/');
-        }
-        return article;
+      htmlFromMarkdown () {
+        return marked(this.content);
       }
+    },
+    created () {
+      this.loadArticle()
+    },
+    methods: {
+      loadArticle () {
+        let hash = this.$route.params.hash
+        this.$store.dispatch('getArticleDetail', hash)
+          .then(text => {
+            const content = fm(text)
+            this.title = content.attributes.title
+            this.date = content.attributes.date
+            this.content = content.body
+            window.document.title = `${this.title}`
+          })
+          .catch(err => {
+            console.error(err)
+            this.$router.replace('/')
+          })
+      },
+      newTab () {
+        Vue.nextTick(function () {
+          // Load the external link into new tab
+          const linksArray = Array.from(document.querySelectorAll('a'))
+          const currentHost = window.location.host
+          linksArray.forEach(el => {
+            if (el.href && el.host !== currentHost) {
+              el.target = '_blank'
+              // https://www.jitbit.com/alexblog/256-targetblank---the-most-underestimated-vulnerability-ever/
+              el.rel = 'noopener noreferrer'
+            }
+          })
+        })
+      }
+    },
+    watch: {
+      'htmlFromMarkdown': 'newTab'
     }
   }
 </script>

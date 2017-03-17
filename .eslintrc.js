@@ -39,7 +39,14 @@ module.exports = {
     "consistent-return": 0,
     "comma-dangle": 0,
     "padded-blocks": 0,
-
+    "space-in-parens": 0,
+    "no-multiple-empty-lines": 0,
+    "spaced-comment": 0,
+    "no-else-return": 0,
+    "valid-jsdoc": [0, {
+      "requireParamDescription": true,
+      "requireReturnDescription": true
+    }],
 
     // 警告
     "no-extra-boolean-cast": 1,
@@ -48,7 +55,7 @@ module.exports = {
     "no-use-before-define": [1, "nofunc"],
     "complexity": [1, 10],
     "no-unused-vars": 1,
-
+    "comma-spacing": 1,
 
     // vue
     "flow-vars/define-flow-type": 1,
@@ -76,7 +83,6 @@ module.exports = {
     "no-native-reassign": 2,
 
     // 代码风格
-    "no-else-return": 1,
     "no-multi-spaces": 1,
     "key-spacing": [1, {
       "beforeColon": false,
@@ -107,10 +113,6 @@ module.exports = {
     "no-void": 2,
     "no-with": 2,
     "space-infix-ops": 2,
-    "valid-jsdoc": [2, {
-      "requireParamDescription": true,
-      "requireReturnDescription": true
-    }],
     "no-warning-comments": [2, {
       "terms": ["todo", "fixme", "any other term"],
       "location": "anywhere"
