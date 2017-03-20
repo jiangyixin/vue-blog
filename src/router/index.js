@@ -7,7 +7,7 @@ Vue.use(Router);
 
 export default new Router({
   mode: 'history',
-  base: '/vue/blog/',
+  base: '/vue-blog/dist/',
   routes: [
     {
       path: '/',
@@ -26,7 +26,7 @@ export default new Router({
     }
   ],
   scrollBehavior (to, from, savedPosition) {
-    // return 期望滚动到哪个的位置
+    // return 期望滚动到哪个的位置 history模式下才有效
     if (savedPosition) {
       return savedPosition;
     }
