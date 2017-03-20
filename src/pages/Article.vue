@@ -38,7 +38,7 @@
           .then(text => {
             const content = fm(text)
             this.title = content.attributes.title
-            this.date = content.attributes.date
+            this.date = content.attributes.date.toLocaleDateString()
             this.content = content.body
             window.document.title = `${this.title}`
           })

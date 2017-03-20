@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-    <router-link class="router-link-active" to="/list">Hello World</router-link>
+    <router-link class="router-link-active" to="/">{{ name }}</router-link>
     <input class="search-bar"
            type="search"
            ref="searchBar"
@@ -16,7 +16,7 @@
   export default{
     data () {
       return {
-        msg: 'hello world',
+        name: 'hello world',
         keyword: ''
       }
     },

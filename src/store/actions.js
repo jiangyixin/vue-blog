@@ -31,7 +31,7 @@ export default {
       // Read from cache
       return Promise.resolve(Cache.get('list'))
     } else {
-      let url = `https://api.github.com/repos/${config.repo}/contents/posts?ref=master`;
+      let url = `https://api.github.com/repos/${config.repo}/contents/${config.path}?ref=master`;
       return axios.get(url)
         .then( resp => resp.data
           , err => {
@@ -57,7 +57,7 @@ export default {
       // https://developer.github.com/v3/media/#raw-1
       headers: { Accept: 'application/vnd.github.v3.raw' }
     }
-    const cacheKey = 'post.' + hash
+    const cacheKey = 'article.' + hash
     if (Cache.has(cacheKey)) {
       // Read from cache
       return Promise.resolve(Cache.get(cacheKey))

@@ -6,6 +6,8 @@ import Article from '@/pages/Article'
 Vue.use(Router);
 
 export default new Router({
+  mode: 'history',
+  base: '/vue/blog/',
   routes: [
     {
       path: '/',
@@ -22,5 +24,11 @@ export default new Router({
       name: 'article',
       component: Article
     }
-  ]
+  ],
+  scrollBehavior (to, from, savedPosition) {
+    // return 期望滚动到哪个的位置
+    if (savedPosition) {
+      return savedPosition;
+    }
+  }
 })

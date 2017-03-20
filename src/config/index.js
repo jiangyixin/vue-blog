@@ -8,8 +8,9 @@ export default {
 
   /**
    * API
+   *
    */
-  repo: 'viko16/writings', // Which repository you stored the posts
-  path: 'posts',
+  repo: 'jiangyixin/blog-article', // viko16/writings
+  path: 'articles',
   branch: 'master'
 }
