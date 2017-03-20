@@ -7,7 +7,7 @@ Vue.use(Router);
 
 export default new Router({
   mode: 'history',
-  base: '/vue-blog/dist/',
+  base: '/blog/',
   routes: [
     {
       path: '/',
