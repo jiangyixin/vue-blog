@@ -11,11 +11,11 @@ let validate = {
 };
 
 document.addValidate = function(options) {
- for (let option of options) {
-   if (!validate[option]) {
-     return option;
-   }
- }
+  for (let option of options) {
+    if (!validate[option]) {
+      return option;
+    }
+  }
 };
 
 let nameInput = $('#name');
